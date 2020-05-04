@@ -13,11 +13,11 @@ $("#3dayDate").text(moment().add(4).format('l'));
 $("#4dayDate").text(moment().add(5).format('l'));
 
 // Declare variables for apiKey and queryURL
-// API key
+// API key - 
 var apiKey = "166a433c57516f51dfab1f7edaed8413";
 
 // Build the URL needed to query the database of the OpenWeatherMap API
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + "&appID=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + "&appID=" + apiKey;
 
 // Run AJAX GET call to request the OpenWeatherMap API
     $.ajax({
@@ -53,9 +53,6 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + "&app
     $("#searchBtn").click(function () {
     });
 
-       // Add event listener for Search Button 
-       $("#searchBtn").click(function () {
-    });
     // Add event listener for Search History Button so when a city is clicked user is presented with that city's current and future conditions
     // $("#searchHistoryBtn").click(function () {
     // });
