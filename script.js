@@ -1,25 +1,67 @@
 // Page is ready to run after html is loaded
 $(document).ready(function () {
 
-// When page is loaded, last search history will load using localStorage.getItem() and a for loop and if else statements
-
 // When page is loaded, display currentDate on the page. Call moment.js api to display current date in real-time and future dates for 5-day forecast
 var currentDate = moment();
 $("#currentDate").text(moment().format('l'));
-$("#0dayDate").text(moment().add(1).format('l'));
-$("#1dayDate").text(moment().add(2).format('l'));
-$("#2dayDate").text(moment().add(3).format('l'));
-$("#3dayDate").text(moment().add(4).format('l'));
-$("#4dayDate").text(moment().add(5).format('l'));
+$("#0dayForecast").text(moment().add(1).format('l'));
+$("#1dayForecast").text(moment().add(2).format('l'));
+$("#2dayForecast").text(moment().add(3).format('l'));
+$("#3dayForecast").text(moment().add(4).format('l'));
+$("#4dayForecast").text(moment().add(5).format('l'));
 
-// Declare variables for apiKey and queryURL
-// API key - 
-var apiKey = "166a433c57516f51dfab1f7edaed8413";
+// Display last search history using a for loop, if else statements and localStorage
+var searchedCitiesArray = [];
 
-// Build the URL needed to query the database of the OpenWeatherMap API
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + "&appID=" + apiKey;
+// Listen to the search button click and create function to get user input/city
+$("#searchBtn").click(function (e) {
+    e.preventDefault();
+    // Declare variable for city input
+    var searchedCity = $("#cityInput").val();
+    // Create array of searched cities
+    searchedCitiesArray.push(searchedCity);
+    // Create string from searched cities in the searched cities array
+    localStorage.setItem("SearchedCities", JSON.stringify(searchedCitiesArray));
+    // Display new searched cities
+    var recentSearchHistory = $("<div>").text(searchedCity).addClass("Search");
+    $("#searchInput").append(recentSearchHistory);
+    // Clear out search bar when user searches for city
+    $("#cityInput").val("");
+    // Event for ajax calls to to getWeather api function
+    getWeather((searchedCity));
+});
 
-// Run AJAX GET call to request the OpenWeatherMap API
+//Create function to display cities search History stored in localStorage
+function searchHistory() {
+    //Convert string into object using JSON.parse
+    searchedCitiesArray = JSON.parse(localStorage.getItem("SearchedCities"));
+    // Use if else statements and for loop to initialise searchedCitiesArray based on search history
+    if (searchedCitiesArray == null) {
+    searchedCitiesArray = [];
+    }
+    console.log(searchedCitiesArray);
+    //Loop through searched citiies array 
+    for (var i = 0; i < searchedCitiesArray.length; i++) {
+        var displaySearchedCities = searchedCitiesArray[i];
+        // Dis[lay searched history and store in local storage
+        var citiesList = $("<div>").text(displaySearchedCities).addClass("Search"); 
+        $("#searchInput").append(citiesList);
+    }
+}
+//Call searchHistory function when page loads
+searchHistory();
+
+// Created apiKey 
+var apiKey = "1ff0f6823d723403dabe8415bdcb12e3";
+
+// Function getWeather
+function getWeather(searchedCity) {
+    console.log(searchedCity);
+
+    // Build the URL needed to query the database of the OpenWeatherMap API
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchedCity + "&appID=" + apiKey;
+
+    // Run AJAX GET call to request the OpenWeatherMap API
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -27,36 +69,46 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + city + "&app
 
     // Store all of the retrieved data inside of an object called "response"
     .then(function(response) {
-
-    // Log queryURL
+    // log queryURL and resulting object
     console.log(queryURL);
-
-    // Log resulting object
     console.log(response);
+
+    // Retrieve icons from weather API
+    var iconCode = response.weather[0].icon;
+    $("#weatherIcon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+
+    // Display weather icons
+    var iconCode = response.daily[0].weather[0].icon;
+    var iconCode = response.daily[1].weather[0].icon;
+    var iconCode = response.daily[2].weather[0].icon;
+    var iconCode = response.daily[3].weather[0].icon;
+
+    $("#0dayIcon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+    $("#1dayIcon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+    $("#2dayIcon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
+    $("#3dayIcon").attr("src", "http://openweathermap.org/img/w/" + iconCode + ".png");
 
    // Display searched city name, temperature, humidity, wind speed, UV index (incl. weather icon)
 
-      // Transfer content to HTML
-      $("#city").text("<h2>" + response.name + "</h2>");
-      $("#temperature").text("Temperature: " + response.main.temp);
-      $("#humidity").text("Humidity: " + response.main.humidity);
-      $("#windSpeed").text("Wind Speed: " + response.wind.speed);
-      $("#uvIndex").text("UV Index: " + response.main.uvi);
+    // Transfer content to HTML
+    $("#searchedCity").text("<h2>" + response.name + "</h2>");
+    $("#temperature").text("Temperature: " + response.main.temp);
+    $("#humidity").text("Humidity: " + response.main.humidity);
+    $("#windSpeed").text("Wind Speed: " + response.wind.speed);
+    $("#uvIndex").text("UV Index: " + response.main.uvi);
+    var lat = response.city.coord.lat;
+    var long = response.city.coord.lon;
+    uvi(lat, long)
       
-       // Log the data in the console as well
-       console.log("Wind Speed: " + response.wind.speed);
-       console.log("Humidity: " + response.main.humidity);
-       console.log("Temperature: " + response.main.temp);
-       console.log("Temperature: " + response.main.uvi);
+    // Log the data in the console as well
+    console.log("Wind Speed: " + response.wind.speed);
+    console.log("Humidity: " + response.main.humidity);
+    console.log("Temperature: " + response.main.temp);
+    console.log("Temperature: " + response.main.uvi);
     });
-    // Add event listener for Search Button
-    $("#searchBtn").click(function () {
-    });
-
-    // Add event listener for Search History Button so when a city is clicked user is presented with that city's current and future conditions
-    // $("#searchHistoryBtn").click(function () {
-    // });
+  }
 });
+
 
 // Given a weather dashboard with form inputs,
 // When user searches for a city, then user is presented with current and future conditions for that city and that city is added to the search history

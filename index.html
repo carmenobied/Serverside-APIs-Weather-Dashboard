@@ -34,6 +34,7 @@
                             </div>
                         </div>
                     </form>
+                    <section class="row" id="recentSearches"></section>
                 </div>
  
         <!--Current City card-->
@@ -47,13 +48,13 @@
                         <div class="col-md-8" id="currentWeather"> 
                             <i id="weatherIcon"></i>
                             <!-- Retrieved weather data will be dumped here -->
-                            <h2 class="ml-2 mt-3" id="city"></h2>
+                            <h2 class="ml-2 mt-3" id="searchedCity"></h2>
                             <h4 class="mb-4 ml-2 mt-1" id="currentDate"></h4>
                             <h6 class="mb-4 ml-2" id="temperature"> </h6>
                             <h6 class="mb-4 ml-2" id="humidity"></h6>
                             <h6 class="mb-4 ml-2" id="windSpeed"></h6>
                             <h6 class="mb-4 ml-2" text id="uvIndex" class="card"> </h6>
-                            <div class="col-md-2"><i id="weatherIcon"></i></div>
+                            <div class="col-md-2 icon"><i id="weatherIcon"></i></div>
                         </div>                                                                     
                     </div>       
                 </div>                                       
@@ -69,7 +70,7 @@
                                      <div class="card col bg-info">
                                         <div class="card-body text-center">
                                             <!--0 Day Date = CurrentDate -->
-                                            <h6 id="0dayDate"></h6>
+                                            <h6 id="0dayForecast"></h6>
                                             <div class="row"><i id="0dayIcon"></i></div>
                                             <text class="row" id="0dayTemperature"> </text>
                                             <text class="row" id="0dayHumidity"> </text> 
@@ -78,7 +79,7 @@
                                     <div class="card col bg-info">
                                         <div class="card-body text-center">
                                             <!--1 Day Date -->
-                                            <h6 id="1dayDate"></h6>
+                                            <h6 id="1dayForecast"></h6>
                                             <div class="row"><i id="1dayIcon"></i></div>
                                             <text class="row" id="1dayTemperature"> </text>
                                             <text class="row" id="1dayHumidity"> </text> 
@@ -87,7 +88,7 @@
                                     <div class="card col bg-info">
                                         <div class="card-body text-center">
                                         <!--2 Day Date -->
-                                            <h6 id="2dayDate"></h6>
+                                            <h6 id="2dayForecast"></h6>
                                             <div class="row"><i id="2dayIcon"></i></div>
                                             <text class="row" id="2dayTemperature"> </text>
                                             <text class="row" id="2dayHumidity"> </text> 
@@ -96,7 +97,7 @@
                                     <div class="card col bg-info">
                                         <div class="card-body text-center">
                                         <!--3 Day Date -->
-                                            <h6 id="3dayDate"></h6>
+                                            <h6 id="3dayForecast"></h6>
                                             <div class="row"><i id="3dayIcon"></i></div>
                                             <text class="row" id="3dayTemperature"> </text>
                                             <text class="row" id="3dayHumidity"> </text> 
