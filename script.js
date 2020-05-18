@@ -17,18 +17,18 @@ var searchedCitiesArray = [];
 $("#searchBtn").click(function (e) {
     e.preventDefault();
     // Declare variable for city input
-    var searchedCity = $("#cityInput").val();
+    var city = $("#cityInput").val();
     // Create array of searched cities
-    searchedCitiesArray.push(searchedCity);
+    searchedCitiesArray.push(city);
     // Create string from searched cities in the searched cities array
     localStorage.setItem("SearchedCities", JSON.stringify(searchedCitiesArray));
     // Display new searched cities
-    var recentSearchHistory = $("<div>").text(searchedCity).addClass("Search");
+    var recentSearchHistory = $("<div>").text(city).addClass("Search");
     $("#searchInput").append(recentSearchHistory);
     // Clear out search bar when user searches for city
     $("#cityInput").val("");
     // Event for ajax calls to to getWeather api function
-    getWeather((searchedCity));
+    getWeather((city));
 });
 
 //Create function to display cities search History stored in localStorage
@@ -55,11 +55,11 @@ searchHistory();
 var apiKey = "1ff0f6823d723403dabe8415bdcb12e3";
 
 // Function getWeather
-function getWeather(searchedCity) {
-    console.log(searchedCity);
+function getWeather(city) {
+    console.log(city);
 
     // Build the URL needed to query the database of the OpenWeatherMap API
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchedCity + "&appID=" + apiKey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appID=" + apiKey;
 
     // Run AJAX GET call to request the OpenWeatherMap API
     $.ajax({
@@ -91,7 +91,7 @@ function getWeather(searchedCity) {
    // Display searched city name, temperature, humidity, wind speed, UV index (incl. weather icon)
 
     // Transfer content to HTML
-    $("#searchedCity").text("<h2>" + response.name + "</h2>");
+    $("#city").text("<h2>" + response.name + "</h2>");
     $("#temperature").text("Temperature: " + response.main.temp);
     $("#humidity").text("Humidity: " + response.main.humidity);
     $("#windSpeed").text("Wind Speed: " + response.wind.speed);
