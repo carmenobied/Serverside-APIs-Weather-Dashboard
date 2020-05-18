@@ -58,6 +58,7 @@ function getWeather(city) {
 
     // Build the URL needed to query the database of the OpenWeatherMap API
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appID=" + apiKey;
+    // LA example: http://api.openweathermap.org/data/2.5/forecast?q=Los+Angeles&appID=1ff0f6823d723403dabe8415bdcb12e3
 
     // Run AJAX GET call to request the OpenWeatherMap API
     $.ajax({
