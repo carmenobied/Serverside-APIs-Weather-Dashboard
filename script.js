@@ -14,8 +14,8 @@ $("#4dayForecast").text(moment().add(5).format('l'));
 var searchedCitiesArray = [];
 
 // Listen to the search button click and create function to get user input/city
-$("#searchBtn").click(function (e) {
-    e.preventDefault();
+$("#searchBtn").click(function (event) {
+    event.preventDefault();
     // Declare variable for city input
     var city = $("#cityInput").val();
     // Create array of searched cities
@@ -28,8 +28,8 @@ $("#searchBtn").click(function (e) {
     // Clear out search bar when user searches for city
     $("#cityInput").val("");
     // Event for ajax calls to to getWeather api function
-    getWeather((city));
-});
+    getWeather(city);
+})
 
 //Create function to display cities search History stored in localStorage
 function searchHistory() {
@@ -44,12 +44,10 @@ function searchHistory() {
     for (var i = 0; i < searchedCitiesArray.length; i++) {
         var displaySearchedCities = searchedCitiesArray[i];
         // Dis[lay searched history and store in local storage
-        var citiesList = $("<div>").text(displaySearchedCities).addClass("Search"); 
-        $("#searchInput").append(citiesList);
+        var searchHistoryList = $("<div>").text(displaySearchedCities).addClass("Search"); 
+        $("#searchInput").append(searchHistoryList);
     }
 }
-//Call searchHistory function when page loads
-searchHistory();
 
 // Created apiKey 
 var apiKey = "1ff0f6823d723403dabe8415bdcb12e3";
@@ -107,8 +105,10 @@ function getWeather(city) {
     console.log("Temperature: " + response.main.uvi);
     });
   }
-});
 
+    //Call searchHistory function when page loads
+    searchHistory();
+});
 
 // Given a weather dashboard with form inputs,
 // When user searches for a city, then user is presented with current and future conditions for that city and that city is added to the search history
