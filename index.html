@@ -23,11 +23,11 @@
         <!-- Search City form input -->
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-4 card">
+                <div class="col-6 col-md-4 card" id="cityHistory">
                     <form class="form-group">
-                        <label for="search-term" id="searchInput">Search for a City:</label>
+                        <label for="search-term">Search for a City:</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" id="cityIput">
+                            <input type="text" class="form-control" placeholder="Search" id="searchInput">
                             <div class="input-group-append">
                                 <button class="btn btn-info" type="submit" id="searchBtn"><i class="fas fa-search"></i>
                                 </button>
@@ -48,7 +48,7 @@
                         <div class="col-md-8" id="currentWeather"> 
                             <i id="weatherIcon"></i>
                             <!-- Retrieved weather data will be dumped here -->
-                            <h2 class="ml-2 mt-3" id="searchedCity"></h2>
+                            <h2 class="ml-2 mt-3" id="currentCity"></h2>
                             <h4 class="mb-4 ml-2 mt-1" id="currentDate"></h4>
                             <h6 class="mb-4 ml-2" id="temperature"> </h6>
                             <h6 class="mb-4 ml-2" id="humidity"></h6>
@@ -111,7 +111,7 @@
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 

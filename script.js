@@ -14,27 +14,28 @@ $("#4dayForecast").text(moment().add(5).format('l'));
 var searchedCitiesArray = [];
 
 // Listen to the search button click and create function to get user input/city
-$("#searchBtn").click(function (event) {
+function getSearchInput(event) {
+// $("#searchBtn").click(function (event) {
     event.preventDefault();
     // Declare variable for city input
-    var city = $("#cityInput").val();
+    var city = $("#searchInput").val();
     // Create array of searched cities
     searchedCitiesArray.push(city);
     // Create string from searched cities in the searched cities array
-    localStorage.setItem("SearchedCities", JSON.stringify(searchedCitiesArray));
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCitiesArray));
     // Display new searched cities
     var recentSearchHistory = $("<div>").text(city).addClass("Search");
-    $("#searchInput").append(recentSearchHistory);
+    $("#cityHistory").append(recentSearchHistory);
     // Clear out search bar when user searches for city
-    $("#cityInput").val("");
+    $("#searchInput").val("");
     // Event for ajax calls to to getWeather api function
     getWeather(city);
-})
+}
 
 //Create function to display cities search History stored in localStorage
 function searchHistory() {
     //Convert string into object using JSON.parse
-    searchedCitiesArray = JSON.parse(localStorage.getItem("SearchedCities"));
+    searchedCitiesArray = JSON.parse(localStorage.getItem("searchedCities"));
     // Use if else statements and for loop to initialise searchedCitiesArray based on search history
     if (searchedCitiesArray == null) {
     searchedCitiesArray = [];
@@ -45,7 +46,7 @@ function searchHistory() {
         var displaySearchedCities = searchedCitiesArray[i];
         // Dis[lay searched history and store in local storage
         var searchHistoryList = $("<div>").text(displaySearchedCities).addClass("Search"); 
-        $("#searchInput").append(searchHistoryList);
+        $("#cityHistory").append(searchHistoryList);
     }
 }
 
@@ -66,10 +67,10 @@ function getWeather(city) {
         method: "GET"
     })
 
-    // Store all of the retrieved data inside of an object called "response"
+    // Store all of the retrieved data inside of a response object 
     .then(function(response) {
     // log queryURL and resulting object
-    console.log(queryURL);
+    // console.log(queryURL);
     console.log(response);
 
     // Retrieve icons from weather API
@@ -90,7 +91,7 @@ function getWeather(city) {
    // Display searched city name, temperature, humidity, wind speed, UV index (incl. weather icon)
 
     // Transfer content to HTML
-    $("#city").text("<h2>" + response.name + "</h2>");
+    $("#currentCity").text("<h2>" + response.name + "</h2>");
     $("#temperature").text("Temperature: " + response.main.temp);
     $("#humidity").text("Humidity: " + response.main.humidity);
     $("#windSpeed").text("Wind Speed: " + response.wind.speed);
@@ -106,7 +107,6 @@ function getWeather(city) {
     console.log("Temperature: " + response.main.uvi);
     });
   }
-
     //Call searchHistory function when page loads
     searchHistory();
 });
