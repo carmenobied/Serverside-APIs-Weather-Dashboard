@@ -2,14 +2,13 @@
 body {
     background-size: cover;
     background-image: url("assets/weather_background.jpg");
-    text-align: center;
-    max-width: 100%;
   }
 
 
 h6 {
     color: white;
 }
+
 
 .f1 {
     background-color: steelblue;
