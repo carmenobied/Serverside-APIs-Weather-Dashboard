@@ -14,27 +14,28 @@
   </head>
 
   <body>
-    <header class="jumbotron bg-info p-2">
+    <div class="container">
+
+    <header class="jumbotron bg-dark p-2">
       <h1 class="display-3 text-light text-center">Weather Dashboard</h1>
     </header>
 
-    <div class="container">
     
         <!-- Search City form input -->
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-4 card" id="cityHistory">
+                <div class="col-6 col-md-4 card" id="searchHistory">
                     <form class="form-group">
                         <label for="search-term">Search for a City:</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" id="searchInput">
+                            <input type="text" class="form-control" placeholder="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-info" type="submit" id="searchBtn"><i class="fas fa-search"></i>
                                 </button>
                             </div>
                         </div>
                     </form>
-                    <section class="row" id="recentSearches"></section>
+                    <div id="previousSearches"></div>
                 </div>
  
         <!--Current City card-->
@@ -42,58 +43,69 @@
         <main class="col-md-8 card">
             <section>
                 <i id="weatherIcon"></i> 
+                <div class="card CurrentWeather" style="width: 100%;">
+
                   <!-- Retrieved data will be dumped here -->
                         <div class="currentCity"></div>
                         <div class="windSpeed"></div>
                         <div class="humidity"></div>
                         <div class="temperature"></div>
-                        <div class="tempF"></div>
                         <div class="uvIndex"></div>
                         <h6 class="mb-4 ml-2" text id="uvIndex" class="card"> </h6>
                         <div class="col-md-2 icon"><i id="weatherIcon"></i></div>
+                        </div>
             </section> 
 
             <!--5 Day Forecast card-->
         
-            <section id="5dayForecast">
+            <section id="forecast">
                 <div class="container"> 
                     <h3 class="row mt-4 ml-4 mb-4">5-Day Forecast</h3>
                         <div class="row mt-4 ml-4 mb-4">
-                            <div class="card-group bg-info">
-                                     <div class="card col bg-info">
+                            <div class="card-group">
+                                     <div class="card f1">
                                         <div class="card-body text-center">
-                                            <!--0 Day Date = CurrentDate -->
-                                            <h6 id="0dayForecast"></h6>
-                                            <div class="row"><i id="0dayIcon"></i></div>
-                                            <text class="row" id="0dayTemperature"> </text>
-                                            <text class="row" id="0dayHumidity"> </text> 
-                                        </div>
-                                    </div>
-                                    <div class="card col bg-info">
-                                        <div class="card-body text-center">
-                                            <!--1 Day Date -->
+                                            <!--1 Day Date = CurrentDate -->
                                             <h6 id="1dayForecast"></h6>
                                             <div class="row"><i id="1dayIcon"></i></div>
-                                            <text class="row" id="1dayTemperature"> </text>
                                             <text class="row" id="1dayHumidity"> </text> 
+                                            <text class="row" id="1dayTemperature"> </text>
                                         </div>
                                     </div>
-                                    <div class="card col bg-info">
+                                    <div class="card col f2">
                                         <div class="card-body text-center">
-                                        <!--2 Day Date -->
+                                            <!--2 Day Date -->
                                             <h6 id="2dayForecast"></h6>
                                             <div class="row"><i id="2dayIcon"></i></div>
-                                            <text class="row" id="2dayTemperature"> </text>
                                             <text class="row" id="2dayHumidity"> </text> 
+                                            <text class="row" id="2dayTemperature"> </text>
                                         </div>
                                     </div>
-                                    <div class="card col bg-info">
+                                    <div class="card col f3">
                                         <div class="card-body text-center">
                                         <!--3 Day Date -->
                                             <h6 id="3dayForecast"></h6>
                                             <div class="row"><i id="3dayIcon"></i></div>
-                                            <text class="row" id="3dayTemperature"> </text>
                                             <text class="row" id="3dayHumidity"> </text> 
+                                            <text class="row" id="3dayTemperature"> </text>
+                                        </div>
+                                    </div>
+                                    <div class="card col f4">
+                                        <div class="card-body text-center">
+                                        <!--4 Day Date -->
+                                            <h6 id="4dayForecast"></h6>
+                                            <div class="row"><i id="4dayIcon"></i></div>
+                                            <text class="row" id="4dayHumidity"> </text> 
+                                            <text class="row" id="4dayTemperature"> </text>
+                                        </div>
+                                    </div>
+                                    <div class="card col f5">
+                                        <div class="card-body text-center">
+                                        <!--5 Day Date -->
+                                            <h6 id="5dayForecast"></h6>
+                                            <div class="row"><i id="5dayIcon"></i></div>
+                                            <text class="row" id="5dayHumidity"> </text> 
+                                            <text class="row" id="5dayTemperature"> </text>
                                         </div>
                                     </div>
                             </div>
