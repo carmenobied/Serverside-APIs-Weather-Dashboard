@@ -10,6 +10,16 @@ h6 {
 }
 
 
+.search {
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    cursor: pointer;
+}
+
 .f1 {
     background-color: steelblue;
     color: White;

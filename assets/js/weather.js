@@ -138,18 +138,18 @@ $(document).ready(function(){
         })
             .then(function(responseUVI) {
                 console.log(responseUVI.current.uvi)
-                var uviIndex = responseUVI.current.uvi;
+                var uvIndex = responseUVI.current.uvi;
                 //Print UVIndex
-                $("#uvIndex").text("UV Index: " + uviIndex);
+                $("#uvIndex").text("UV Index: " + uvIndex);
                 
-                if (uviIndex <= 2.99) {                  
-                    uviIndex = $("#uvIndex").css({"background-color": "olivedrab", "display": "block", "border-radius": "8x", "padding": "1.5%"});
-                } else if (uviIndex >= 3 & uviIndex <= 5.99) {
-                    uviIndex = $("#uvIndex").css({"background-color": "gold", "display": "block", "border-radius": "8x", "padding": "1.5%"});
-                } else if (uviIndex >= 6 & uviIndex <= 7.99) {
-                    uviIndex = $("#uvIndex").css({"background-color": "darkorange", "display": "block", "border-radius": "8x", "padding": "1.5%"});
-                } else if (uviIndex >= 8) {
-                    uviIndex = $("#uvIndex").css({"background-color": "firebrick", "display": "block", "border-radius": "8x", "padding": "1.5%"});
+                if (uvIndex <= 2.99) {                  
+                    uvIndex = $("#uvIndex").css({"background-color": "olivedrab", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 3 & uvIndex <= 5.99) {
+                    uvIndex = $("#uvIndex").css({"background-color": "gold", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 6 & uvIndex <= 7.99) {
+                    uvIndex = $("#uvIndex").css({"background-color": "darkorange", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 8) {
+                    uvIndex = $("#uvIndex").css({"background-color": "firebrick", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
                 };
     
             });
