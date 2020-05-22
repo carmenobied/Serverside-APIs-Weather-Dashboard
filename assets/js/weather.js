@@ -143,13 +143,13 @@ $(document).ready(function(){
                 $("#uvIndex").text("UV Index: " + uviIndex);
                 
                 if (uviIndex <= 2.99) {                  
-                    uviIndex = $("#uvIndex").css({"background-color": "green", "display": "block", "border-radius": "8x", "padding": "1.5%"});
+                    uviIndex = $("#uvIndex").css({"background-color": "olivedrab", "display": "block", "border-radius": "8x", "padding": "1.5%"});
                 } else if (uviIndex >= 3 & uviIndex <= 5.99) {
-                    uviIndex = $("#uvIndex").css({"background-color": "yellow", "display": "block", "border-radius": "8x", "padding": "1.5%"});
+                    uviIndex = $("#uvIndex").css({"background-color": "gold", "display": "block", "border-radius": "8x", "padding": "1.5%"});
                 } else if (uviIndex >= 6 & uviIndex <= 7.99) {
-                    uviIndex = $("#uvIndex").css({"background-color": "orange", "display": "block", "border-radius": "8x", "padding": "1.5%"});
+                    uviIndex = $("#uvIndex").css({"background-color": "darkorange", "display": "block", "border-radius": "8x", "padding": "1.5%"});
                 } else if (uviIndex >= 8) {
-                    uviIndex = $("#uvIndex").css({"background-color": "maroon", "display": "block", "border-radius": "8x", "padding": "1.5%"});
+                    uviIndex = $("#uvIndex").css({"background-color": "firebrick", "display": "block", "border-radius": "8x", "padding": "1.5%"});
                 };
     
             });
