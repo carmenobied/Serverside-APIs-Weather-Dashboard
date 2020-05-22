@@ -1,0 +1,51 @@
+
+body {
+    background-size: cover;
+    background-image: url("assets/weather_background.jpg");
+  }
+
+
+h6 {
+    color: white;
+}
+
+
+.f1 {
+    background-color: steelblue;
+    color: White;
+    max-width: 100%;
+    margin-right: 1%;
+
+}
+
+.f2 {
+    background-color: steelblue;
+    color: White;
+    max-width: 100%;
+    margin-right: 1%;
+
+}
+
+.f3 {
+    background-color: steelblue;
+    color: White;
+    max-width: 100%;
+    margin-right: 1%;
+
+}
+
+.f4 {
+    background-color: steelblue;
+    color: White;
+    max-width: 100%;
+    margin-right: 1%;
+
+}
+
+.f5 {
+    background-color: steelblue;
+    color: White;
+    max-width: 100%;
+    margin-right: 1%;
+
+}
