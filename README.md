@@ -21,7 +21,7 @@ JSON - AJAX - HTTP GET Requests
 ```
 
 See screenshot below which demonstrates the application:
-![Work Day Scheduler](/assets/Server-Side-APIs-homework-demo.png)
+![Work Day Scheduler](/assets/images/Server-Side-APIs-homework-demo.png)
 
 ## Key Checks Included ensuring the following:
 Given a weather dashboard with form inputs:
