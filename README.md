@@ -17,11 +17,13 @@ iv. Open and explore the app.
 ## Usage
 Server-Side API Components Used:
 ```bash
-JSON - AJAX - HTTP GET Requests
+JSON - AJAX - HTTP GET Requests - OpenWeatherMap API
 ```
+See screenshot below of the application:
+![Weather Dashboard](/assets/images/WeatherDashboard.png)
 
-See screenshot below which demonstrates the application:
-![Work Day Scheduler](/assets/images/Server-Side-APIs-homework-demo.png)
+See video below which demonstrates the application functionality:
+![Weather Dashboard Demo](/assets/images/WeatherDashboardDemo.gif)
 
 ## Key Checks Included ensuring the following:
 Given a weather dashboard with form inputs:
