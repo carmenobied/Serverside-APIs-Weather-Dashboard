@@ -23,7 +23,7 @@ See screenshot below of the application:
 ![Weather Dashboard](/assets/images/WeatherDashboard.png)
 
 See video below which demonstrates the application functionality:
-![Weather Dashboard Demo](/assets/images/WeatherDashboardDemo.gif)
+![Weather Dashboard Demo](/assets/images/WeatherDashboard_Demo.gif)
 
 ## Key Checks Included ensuring the following:
 Given a weather dashboard with form inputs:
