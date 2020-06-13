@@ -4,7 +4,7 @@ The goal was to build a weather dashboard that runs in the browser and features 
 
 This app is aimed towards travelers who want to see the weather outlook for multiple cities, so that they can plan a trip accordingly.
 
-Explore the app here: https://carmenobied.github.io/week6-homework
+Explore the app here: https://carmenobied.github.io/Serverside-APIs-Weather-Dashboard/
 
 ## Installation
 ```
